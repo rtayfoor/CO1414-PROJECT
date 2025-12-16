@@ -57,6 +57,10 @@ if (document.getElementById('listshirts')) {
 // here is where items are added to cart
 function addtocart(productIndex) {
     let cart = JSON.parse(localStorage.getItem('cart'));
+
+    if (!cart) {
+        cart =[];
+    }
     cart.push({
         name: tshirts[productIndex][0],
         color: tshirts[productIndex][1],
@@ -130,5 +134,6 @@ if (window.location.pathname.includes('item.html')) {
         `;
     } 
 }
+
 
 
