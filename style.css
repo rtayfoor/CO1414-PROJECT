@@ -71,14 +71,7 @@ footer {
     grid-template-columns: repeat(3, minmax(200px, 1fr));
     gap: 100px;
 }
-.footercart {
-    max-width: 1300px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
-    gap: 100px;
-    min-height: 570px;
-}
+
 .coloffooter h4 {
     font-size: 14px;
     margin-bottom: 20px;
@@ -244,4 +237,5 @@ footer {
     }
 
 }
+
 
