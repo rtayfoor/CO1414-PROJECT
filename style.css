@@ -1,0 +1,229 @@
+body {
+    font-family: Arial;
+    background: white;
+    color: #34516C;
+    margin:0;
+}
+.header {
+    background: #8E1622;
+    color: white;
+    padding: 25px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+}
+.headertitle {
+    font-size: 22px; 
+    font-weight: bold; 
+    text-align: center;
+    padding-left: 30px;
+    text-decoration: none;
+    color: white;
+}
+
+.headermoveleft {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.navigation a {
+    color: white;
+    margin-left: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.contents {
+    margin: 40px auto;
+    padding: 0 20px;
+}
+h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+p {
+    font-size: 16px;
+    text-align: center;
+}
+.subheading {
+    font-size: 26px;
+    font-weight: bold;
+    color: #f5a623;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+ iframe {
+    display: block; 
+    margin: 10px auto 0 auto; 
+    width: 640PX;
+    height: 360px; 
+    max-width: 100%;
+    border: none;
+}
+.videos video {
+    display: block; 
+    margin: 0 auto; 
+    max-width: 100%; 
+}
+.uclanlogo {
+    width: 150px;
+    height: auto;
+}
+.allitems {
+    width: 100px;
+    height: 200px;
+ 
+}
+.tshirtlists {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.tshirtgrid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr); 
+    gap: 15px;
+    width: 80%;
+
+}
+.tshirtdisplay {
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.tshirtimg {
+    width: 80%; 
+    height: auto;
+    max-width: 180px;
+    margin: 0 auto;
+   
+}
+.tshirtdisplay h3 {
+   font-size: 16px;
+   color:black;
+}
+.description {
+    font-size: 12px;
+    color: #34516C;
+    margin-bottom: 10px;
+}
+.price {
+    font-size: 14px;
+}
+
+.productdetail img {
+    width: 100%; 
+    max-width: 500px; 
+    height: auto; 
+    margin: 0 auto;
+    object-fit: contain; 
+}
+.productdetail h3 {
+    font-size: 24px;
+}
+.productdetail p {
+    font-size: 16px;
+    color: black;
+}
+.textdesc{
+    text-align:left;
+}
+.cartitem {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+}
+.cartitem p {
+    margin: 0;
+}
+.yourcarttext {
+    text-align: center;
+}
+footer {
+    background: #34516c;
+    padding: 50px 80px;
+}
+.allfooter {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 100px;
+}
+.coloffooter h4 {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: white;
+}
+.coloffooter ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.coloffooter ul li  {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}  
+.coloffooter ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}        
+@media (max-width: 768px) {
+    footer {
+        padding: 60px 50px;
+    }
+
+
+    .allfooter {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .tshirtgrid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+    }
+
+    .tshirtimg {
+        object-fit: contain;
+        height: auto;
+    }
+
+    .tshirtdisplay h3 {
+        font-size: 18px;
+    }
+
+    .price {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .tshirtgrid {
+        grid-template-columns: 2fr;
+    }
+
+    .tshirtimg {
+        object-fit: contain;
+        height: auto;
+    }
+
+    .tshirtdisplay h3 {
+        font-size: 16px;
+    }
+
+    .price {
+        font-size: 14px;
+    }
+}
