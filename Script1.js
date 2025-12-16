@@ -1,14 +1,14 @@
 // array
 const tshirts = [
-    ['Legacy T-Shirt', 'Red', '\u00A37.99', 'good-stock', 'tshirt1.jpg', 'Perfect for those graduating this year. Get a bargain whilst we have the stock.'],
-    ['Legacy T-Shirt', 'Green', '\u00A37.99', 'last-few', 'tshirt2.jpg', 'Limited stock. Grab these nostalgic items before they make their way onto eBay.'],
-    ['Legacy T-Shirt', 'Blue', '\u00A37.99', 'out-of-stock', 'tshirt3.jpg', 'Sadly we are sold out of this legendary item. Keep an eye out for future stock.'],
-    ['Legacy T-Shirt', 'Cyan', '\u00A37.99', 'good-stock', 'tshirt4.jpg', 'Perfect for those graduating this year. Get a bargain whilst we have the stock.'],
-    ['Legacy T-Shirt', 'Magenta', '\u00A37.99', 'out-of-stock', 'tshirt5.jpg', 'Sadly we are sold out of this legendary item. Keep an eye out for future stock.'],
-    ['Legacy T-Shirt', 'Yellow', '\u00A37.99', 'last-few', 'tshirt6.jpg', 'Limited stock. Grab these nostalgic items before they make their way onto eBay.'],
-    ['Legacy T-Shirt', 'Black', '\u00A37.99', 'out-of-stock', 'tshirt7.jpg', 'Sadly we are sold out of this legendary item. Keep an eye out for future stock.'],
-    ['Legacy T-Shirt', 'Grey', '\u00A37.99', 'good-stock', 'tshirt8.jpg', 'Perfect for those graduating this year. Get a bargain whilst we have the stock.'],
-    ['Legacy T-Shirt', 'Burgundy', '\u00A37.99', 'last-few', 'tshirt9.jpg', 'Limited stock. Grab these nostalgic items before they make their way onto eBay.'],
+    ['Legacy T-Shirt', 'Red', '£7.99', 'good-stock', 'tshirt1.jpg', 'Perfect for those graduating this year. Get a bargain whilst we have the stock.'],
+    ['Legacy T-Shirt', 'Green', '£7.99', 'last-few', 'tshirt2.jpg', 'Limited stock. Grab these nostalgic items before they make their way onto eBay.'],
+    ['Legacy T-Shirt', 'Blue', '£7.99', 'out-of-stock', 'tshirt3.jpg', 'Sadly we are sold out of this legendary item. Keep an eye out for future stock.'],
+    ['Legacy T-Shirt', 'Cyan', '£37.99', 'good-stock', 'tshirt4.jpg', 'Perfect for those graduating this year. Get a bargain whilst we have the stock.'],
+    ['Legacy T-Shirt', 'Magenta', '£7.99', 'out-of-stock', 'tshirt5.jpg', 'Sadly we are sold out of this legendary item. Keep an eye out for future stock.'],
+    ['Legacy T-Shirt', 'Yellow', '£7.99', 'last-few', 'tshirt6.jpg', 'Limited stock. Grab these nostalgic items before they make their way onto eBay.'],
+    ['Legacy T-Shirt', 'Black', '£7.99', 'out-of-stock', 'tshirt7.jpg', 'Sadly we are sold out of this legendary item. Keep an eye out for future stock.'],
+    ['Legacy T-Shirt', 'Grey', '£7.99', 'good-stock', 'tshirt8.jpg', 'Perfect for those graduating this year. Get a bargain whilst we have the stock.'],
+    ['Legacy T-Shirt', 'Burgundy', '£7.99', 'last-few', 'tshirt9.jpg', 'Limited stock. Grab these nostalgic items before they make their way onto eBay.'],
 ];
 // product display in products.html
 if (document.getElementById('listshirts')) {
@@ -56,11 +56,7 @@ if (document.getElementById('listshirts')) {
 }
 // here is where items are added to cart
 function addtocart(productIndex) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [] ;
-
-    if (!cart) {
-        cart =[];
-    }
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.push({
         name: tshirts[productIndex][0],
         color: tshirts[productIndex][1],
@@ -68,9 +64,11 @@ function addtocart(productIndex) {
         image: tshirts[productIndex][4],
         description: tshirts[productIndex][5]
     });
+
     localStorage.setItem('cart', JSON.stringify(cart));
     alert(`${tshirts[productIndex][0]} - ${tshirts[productIndex][1]} has been added to your cart!`);
 }
+
 // this is used for removing items from cart
 function removefromcart(index) {
     let cart = JSON.parse(localStorage.getItem('cart'));
@@ -85,33 +83,32 @@ function emptycart() {
 }
 // this is for cart.html
 function displaycart() {
-    let cart = JSON.parse(localStorage.getItem('cart'));
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
     if (!document.getElementById('cartitems')) return;
     if (cart.length > 0) {
         let total = 0;
-
         document.getElementById('cartitems').innerHTML = '';
         cart.forEach((item, index) => {
             document.getElementById('cartitems').innerHTML += `
-        <div class="cartitem">
-            <img src="${item.image}" width="90">
-            <p>${item.name} (${item.color}) - ${item.price}</p>
-
-            <button 
-                onclick="removefromcart(${index})"
-                style="padding:8px 1px;">
-                Remove
-            </button>
-        </div>
-    `;
-            total += parseFloat(item.price.replace('\u00A3', '')); // using parseFloat which converts the string into doule to calculate total 
+                <div class="cartitem">
+                    <img src="${item.image}" width="90">
+                    <p>${item.name} (${item.color}) - ${item.price}</p>
+                    <button onclick="removefromcart(${index})">Remove</button>
+                </div>
+            `;
+            total += parseFloat(item.price.replace('£', ''));
         });
-        document.getElementById('cartitems').innerHTML += `<h3>Total: \u00A3${total.toFixed(2)}</h3>`;
-        document.getElementById('cartitems').innerHTML += `<button onclick="emptycart()" style="margin-top:10px; padding:10px 15px;">Empty Cart</button>`;
+
+        document.getElementById('cartitems').innerHTML += `
+            <h3>Total: £${total.toFixed(2)}</h3>
+            <button onclick="emptycart()">Empty Cart</button>
+        `;
     } else {
         document.getElementById('cartitems').innerHTML = '<p>Your cart is empty.</p>';
     }
 }
+
+
 
 if (document.getElementById('cartitems')) {
     displaycart();
@@ -134,7 +131,5 @@ if (window.location.pathname.includes('item.html')) {
         `;
     } 
 }
-
-
 
 
