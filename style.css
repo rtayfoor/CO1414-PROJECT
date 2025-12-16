@@ -1,3 +1,5 @@
+ /* overall body */
+
 body {
     font-family: Arial;
     background: white;
@@ -54,6 +56,51 @@ p {
     margin-bottom: 15px;
     text-align: center;
 }
+.uclanlogo {
+    width: 150px;
+    height: auto;
+}
+footer {
+    background: #34516c;
+    padding: 50px 80px;
+}
+.allfooter {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 100px;
+}
+.footercart {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 100px;
+    min-height: 570px;
+}
+.coloffooter h4 {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: white;
+}
+.coloffooter ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.coloffooter ul li  {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}  
+.coloffooter ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}        
+
+/* for index only */
  iframe {
     display: block; 
     margin: 10px auto 0 auto; 
@@ -67,10 +114,8 @@ p {
     margin: 0 auto; 
     max-width: 100%; 
 }
-.uclanlogo {
-    width: 150px;
-    height: auto;
-}
+
+/* for products.html */
 .allitems {
     width: 100px;
     height: 200px;
@@ -135,6 +180,8 @@ p {
 .textdesc{
     text-align:left;
 }
+
+/* for cart.html ( classes can be found is Script1.js )*/
 .cartitem {
     display: flex;
     align-items: center;
@@ -147,50 +194,11 @@ p {
 .yourcarttext {
     text-align: center;
 }
-footer {
-    background: #34516c;
-    padding: 50px 80px;
-}
-.allfooter {
-    max-width: 1300px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
-    gap: 100px;
-}
-.footercart {
-    max-width: 1300px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
-    gap: 100px;
-    min-height: 570px;
-}
-.coloffooter h4 {
-    font-size: 14px;
-    margin-bottom: 20px;
-    color: white;
-}
-.coloffooter ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.coloffooter ul li  {
-    text-decoration: none;
-    color: white;
-    font-size: 14px;
-}  
-.coloffooter ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 14px;
-}        
+/* for mobile devices*/
 @media (max-width: 768px) {
     footer {
         padding: 60px 50px;
     }
-
 
     .allfooter {
         grid-template-columns: 1fr;
@@ -236,3 +244,4 @@ footer {
     }
 
 }
+
